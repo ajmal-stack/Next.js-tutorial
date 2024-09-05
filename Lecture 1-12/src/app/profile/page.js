@@ -1,18 +1,20 @@
 import AdminLayout from '../components/AdminLayout';
 import UserLayout from '../components/UserLayout';
-import RootLayout from '../layout';
-
-const userRole = 'admin'; // Dynamically determined in a real-world app
-
+const userRole = 'user';
 export default function Profile() {
-  const Layout = userRole === 'admin' ? AdminLayout : UserLayout;
-
   return (
-    <RootLayout>
-      <Layout>
-        <h2>Welcome to your Dashboard!</h2>
-        <p>This is a profile page content based on your role.</p>
-      </Layout>
-    </RootLayout>
+    <>
+      {userRole === 'admin' ? (
+        <AdminLayout>
+          <div className='text-2xl font-bold'>Admin Dashboard</div>
+          <p>Welcome Admin! You can manage users and view reports here.</p>
+        </AdminLayout>
+      ) : (
+        <UserLayout>
+          <div className='text-2xl font-bold'>User Dashboard</div>
+          <p>Welcome! Here you can view your profile and check your orders.</p>
+        </UserLayout>
+      )}
+    </>
   );
 }

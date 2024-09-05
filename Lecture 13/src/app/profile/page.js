@@ -2,19 +2,19 @@
 import AdminLayout from '../components/AdminLayout';
 import UserLayout from '../components/layouts/UserLayout';
 
-const userRole = 'admin'; // यह dynamic condition हो सकती है
+const userRole = 'user'; // यह dynamic condition हो सकती है
 
 export default function Profile() {
   return (
     <>
       {userRole === 'admin' ? (
         <AdminLayout>
-          <h2>Admin Dashboard</h2>
+          <h1>Admin Dashboard</h1>
           <p>Manage users and view reports here.</p>
         </AdminLayout>
       ) : (
         <UserLayout>
-          <h2>User Profile</h2>
+          <h1>User Profile</h1>
           <p>View your profile and manage orders here.</p>
         </UserLayout>
       )}
